@@ -38,7 +38,17 @@ public class IntegratedCA_1 {
     private static final Map<String, Users> users = new HashMap<>();
     
     static {
-        users.put("admin", new Admin("admin", "java"));
+        //Admin username and password
+        users.put("admin", new Admin("admin", "java")); 
+        
+        //Office Username and password
+        Database_Connection officeDbConnection = new Database_Connection();
+        users.put("officeUser", new Office("office", "office", officeDbConnection));
+        
+        //Lecturer username and password
+        Database_Connection lecturerDbConnection = new Database_Connection();
+        users.put("lecturerUser", new Lecturer("lecturer", "lecturer", lecturerDbConnection));
+        
     }
     
     private static Users authenticateUser(String username, String password) {

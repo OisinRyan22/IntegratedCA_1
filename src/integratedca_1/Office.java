@@ -7,7 +7,6 @@ package integratedca_1;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.PrintWriter;
-import static java.sql.DriverManager.println;
 
 /**
  *
