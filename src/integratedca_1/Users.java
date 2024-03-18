@@ -20,13 +20,16 @@ public abstract class Users {
     this.password = password;
     this.role = role;
 }
-    public abstract void displayOptions();
+    public abstract void displayOptions(Scanner sc);
     
-    public void changePassword() {
-        System.out.println("Changing password (NOT FULLY IMPLEMENTED).");
+    public void changePassword(Scanner sc) {
+        System.out.println("Enter new password: ");
+        String newPassword = sc.nextLine();
+        setPassword(newPassword);
+        System.out.println("Password changed succesfully.");
+        
 }
-
-    void displayOptions(Scanner sc) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setPassword(String newPassword) {
+        this.password = newPassword;
     }
 }
