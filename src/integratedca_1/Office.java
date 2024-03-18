@@ -7,6 +7,8 @@ package integratedca_1;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.io.PrintWriter;
  */
 public class Office extends Users {
     private Database_Connection dbConnection;
+    
+   
+
     
     public Office(String username, String password, Database_Connection dbConnection) {
         super(username, password, "Office");

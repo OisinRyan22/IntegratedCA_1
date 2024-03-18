@@ -4,8 +4,8 @@
  */
 package integratedca_1;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+//import java.io.FileNotFoundException;
+//import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -41,19 +41,23 @@ public class IntegratedCA_1 {
         //Admin username and password
         users.put("admin", new Admin("admin", "java")); 
         
-        //Office Username and password
+//        //Office Username and password
         Database_Connection officeDbConnection = new Database_Connection();
-        users.put("officeUser", new Office("office", "office", officeDbConnection));
-        
-        //Lecturer username and password
+        users.put("office", new Office("office", "office", officeDbConnection));
+//        
+//        //Lecturer username and password
         Database_Connection lecturerDbConnection = new Database_Connection();
-        users.put("lecturerUser", new Lecturer("lecturer", "lecturer", lecturerDbConnection));
+        users.put("lecturer", new Lecturer("lecturer", "lecturer", lecturerDbConnection));
         
     }
     
     private static Users authenticateUser(String username, String password) {
         Users user = users.get(username);
-        return (user != null && user.password.equals(password)) ? user : null;
+        if (user != null && user.password.equals(password)) {
+        return user; 
+    } else {
+            return null;
+        }
     }
     
     
@@ -74,6 +78,7 @@ public class IntegratedCA_1 {
             System.out.println("Authentication Failed.");
         }
         }
+}
         
         
         
@@ -82,7 +87,7 @@ public class IntegratedCA_1 {
         
         
         
-    }
+    
 //        Database_Connection dbConnection = new Database_Connection();
 //
 //        CourseReport courseReport = new CourseReport(dbConnection);
