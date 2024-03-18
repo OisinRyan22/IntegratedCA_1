@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author ocean
  */
 public class Database_Connection {
-    private final String DB_URL = "jdbc:mysql://localhost";         //database URL
+    private final String DB_URL = "jdbc:mysql://localhost:3306/IntegratedCA_DB1";        //database URL
     private final String user = "root";     //Database username
     private final String password = "Gethelp33!";       //database password
     
