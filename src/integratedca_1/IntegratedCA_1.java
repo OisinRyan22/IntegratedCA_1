@@ -82,8 +82,24 @@ public class IntegratedCA_1 {
         }
         
         System.out.println("Choose the output format: \n1. Console\n2. TXT File\n3. CSV File");
-        int formatChoice = sc.nextInt
+        int formatChoice = sc.nextInt();
+        
+        switch (formatChoice) {
+            case 1:     //outputs to console
+                System.out.println(reportData);
+                break;
                 
+            case 2:     //Outputs to .txt file
+                writeToTxtFile(reportData, reportType + ".txt");
+                System.out.println("Report written to " + reportType + ".txt");
+                break;
+                
+             case 3:        //Outputs to .csv file
+                writeToCsvFile(reportData, reportType + ".csv");
+                System.out.println("Report written to " + reportType + ".csv");
+                break;    
+             default:
+                 System.out.println("Invalid format choice");
         }
     }
 
