@@ -4,6 +4,7 @@
  */
 package integratedca_1;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.PrintWriter;
 
@@ -33,6 +34,7 @@ public class Lecturer extends Users {
         System.out.println("3. CSV file");
         
         int formatChoice = sc.nextInt();
+        sc.nextLine();
         switch (formatChoice) {
             case 1:
                 System.out.println(reportData);
@@ -48,15 +50,21 @@ public class Lecturer extends Users {
         }
     }
 
-    private void writeToTxtFile(String reportData, String lecturer_reporttxt) {
-        
+    private void writeToTxtFile(String reportData, String filename) {
+        try (PrintWriter out = new PrintWriter(filename)) {
+            out.println(reportData);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error writing to TXT file: " + e.getMessage());
+        }
     }
 
-    private void writeToCsvFile(String reportData, String lecturer_reportcsv) {
-    
+    private void writeToCsvFile(String reportData, String filename) {
+        try (PrintWriter out = new PrintWriter(filename)) {
+            out.println(reportData);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error writing to CSV file: " + e.getMessage());
+        } 
     }
-
-    }
-    
+}
 
 
