@@ -8,6 +8,6 @@ package integratedca_1;
  *
  * @author ocean
  */
-public class Report_Generator {
+public class CourseReport {
     
 }

@@ -9,5 +9,5 @@ package integratedca_1;
  * @author ocean
  */
 public interface Report_Inter {
-    
+    String generateReport();
 }
