@@ -51,7 +51,7 @@ public class IntegratedCA_1 {
 //        //Gathers and displays lecturers report data
 //        String lecturerReportData = lecturerReport.generateReport();
 //        System.out.println("\nLecturer Report\n" + lecturerReportData);
-        System.out.println("Select the report you want to generate: ");
+        System.out.println("Choose a report you want to generate by entering a number corresponding to the report you want: ");
         System.out.println("1. Course Report");
         System.out.println("2. Student Report");
         System.out.println("3. Lecturer Report");
@@ -61,7 +61,7 @@ public class IntegratedCA_1 {
         String reportData = "";
         String reportType = "";
 
-        switch (reportChoice) {
+        switch (reportChoice) { 
             case 1:
                 reportData = courseReport.generateReport();
                 reportType = "CourseReport";
@@ -81,7 +81,7 @@ public class IntegratedCA_1 {
                 return;
         }
         
-        System.out.println("Choose the output format: \n1. Console\n2. TXT File\n3. CSV File");
+        System.out.println("Choose the output format by entering a number that corresponds with the file output : \n1. Console\n2. TXT File\n3. CSV File");
         int formatChoice = sc.nextInt();
         
         switch (formatChoice) {
