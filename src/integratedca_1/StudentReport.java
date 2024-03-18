@@ -8,16 +8,15 @@ package integratedca_1;
  *
  * @author ocean
  */
-public class CourseReport implements Report_Inter {
+public class StudentReport implements Report_Inter {
     private Database_Connection dbConnection;
     
-    public CourseReport(Database_Connection dbConnection) {
+    public StudentReport(Database_Connection dbConnection) {
         this.dbConnection = dbConnection;
     }
 
     @Override
     public String generateReport() {
-        return "Course report data";
+        return "Student report data";
     }
 }
-    
