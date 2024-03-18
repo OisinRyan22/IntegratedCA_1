@@ -4,19 +4,58 @@
  */
 package integratedca_1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ocean
  */
 public class Lecturer extends Users {
-    public Lecturer(String username, String password) {
+    private Database_Connection dbConnection;
+    
+    public Lecturer(String username, String password, Database_Connection dbConnection) {
         super(username, password, "Lecturer");
+        this.dbConnection = dbConnection;
     }
 
     @Override
-    public void displayOptions() {
-        System.out.println("Lecturer Options: Generate Reports");
+    public void displayOptions(Scanner sc) {
+        LecturerReport lecturerReport = new LecturerReport(dbConnection);
+        String reportData = lecturerReport.generateReport();
+        outputReport(reportData, sc);
+    }
+
+    private void outputReport(String reportData, Scanner sc) {
+        System.out.println("Choose an output format you want by entering the number corresponding to the file you want: ");
+        System.out.println("1. Console");
+        System.out.println("2. TXT file");
+        System.out.println("3. CSV file");
+        
+        int formatChoice = sc.nextInt();
+        switch (formatChoice) {
+            case 1:
+                System.out.println(reportData);
+                break;
+            case 2:
+                writeToTxtFile(reportData, "lecturer_report.txt");
+                break;
+            case 3:
+                writeToCsvFile(reportData, "lecturer_report.csv");
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+
+    private void writeToTxtFile(String reportData, String lecturer_reporttxt) {
+        
+    }
+
+    private void writeToCsvFile(String reportData, String lecturer_reportcsv) {
+    
+    }
+
     }
     
-}
+
 
