@@ -5,6 +5,7 @@
 package integratedca_1;
 
 import java.util.Scanner;
+import java.io.PrintWriter;
 
 /**
  *
@@ -53,7 +54,7 @@ public abstract class Office extends Users {
     }
 
     private void outputReport(String reportData, Scanner sc) {
-        System.out.println("Choose an out format you want by entering the number corresponding to the file you want: ");
+        System.out.println("Choose an output format you want by entering the number corresponding to the file you want: ");
         System.out.println("1. Console");
         System.out.println("2. TXT file");
         System.out.println("3. CSV file");

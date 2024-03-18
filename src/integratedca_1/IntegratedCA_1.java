@@ -6,6 +6,8 @@ package integratedca_1;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -17,23 +19,60 @@ public class IntegratedCA_1 {
     /**
      * @param args the command line arguments
      */
-    private static void writeToTxtFile(String report, String filename) {
-        try ( PrintWriter out = new PrintWriter(filename)) {
-            out.println(report);
-        } catch (FileNotFoundException e) {
-            System.err.println("error writing to TXT file: " + e.getMessage());
-        }
-    }
+//    private static void writeToTxtFile(String report, String filename) {
+//        try ( PrintWriter out = new PrintWriter(filename)) {
+//            out.println(report);
+//        } catch (FileNotFoundException e) {
+//            System.err.println("error writing to TXT file: " + e.getMessage());
+//        }
+//    }
 
-    private static void writeToCsvFile(String report, String filename) {
-        try ( PrintWriter out = new PrintWriter(filename)) {
-            out.println(report);
-        } catch (FileNotFoundException e) {
-            System.err.println("Error writing to CSV file" + e.getMessage());
-        }
-    }
+//    private static void writeToCsvFile(String report, String filename) {
+//        try ( PrintWriter out = new PrintWriter(filename)) {
+//            out.println(report);
+//        } catch (FileNotFoundException e) {
+//            System.err.println("Error writing to CSV file" + e.getMessage());
+//        }
+//    }
 
+    private static final Map<String, Users> users = new HashMap<>();
+    
+    static {
+        users.put("admin", new Admin("admin", "java"));
+    }
+    
+    private static Users authenticateUser(String username, String password) {
+        Users user = users.get(username);
+        return (user != null && user.password.equals(password)) ? user : null;
+    }
+    
+    
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Login");
+        System.out.print("Username: ");
+        String username = sc.nextLine();
+        System.out.println("Password");
+        String password = sc.nextLine();
+        
+        Users user = authenticateUser(username, password);
+        
+        if (user != null) {
+            System.out.println("Login succesful.");
+            user.displayOptions(sc);
+        } else {
+            System.out.println("Authentication Failed.");
+        }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+    }
 //        Database_Connection dbConnection = new Database_Connection();
 //
 //        CourseReport courseReport = new CourseReport(dbConnection);
@@ -100,7 +139,3 @@ public class IntegratedCA_1 {
 //                break;    
 //             default:
 //                 System.out.println("Invalid format choice");
-        }
-    }
-
-}

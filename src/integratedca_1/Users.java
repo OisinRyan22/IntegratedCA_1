@@ -4,6 +4,8 @@
  */
 package integratedca_1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ocean
@@ -23,4 +25,8 @@ public abstract class Users {
     public void changePassword() {
         System.out.println("Changing password (NOT FULLY IMPLEMENTED).");
 }
+
+    void displayOptions(Scanner sc) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
