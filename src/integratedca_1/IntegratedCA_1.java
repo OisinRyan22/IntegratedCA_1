@@ -19,7 +19,33 @@ public class IntegratedCA_1 {
     /**
      * @param args the command line arguments
      */
-//    private static void writeToTxtFile(String report, String filename) {
+
+    //Hash map for storing user data
+    private static final Map<String, Users> users = new HashMap<>();
+    
+    static {
+        //Admin username and password
+        users.put("admin", new Admin("admin", "java")); 
+        
+        //Office Username and password
+        Database_Connection officeDbConnection = new Database_Connection();
+        users.put("office", new Office("office", "office", officeDbConnection));
+        
+        //Lecturer username and password
+        Database_Connection lecturerDbConnection = new Database_Connection();
+        users.put("lecturer", new Lecturer("lecturer", "lecturer", lecturerDbConnection));
+        
+    }
+    
+    private static Users authenticateUser(String username, String password) {
+        Users user = users.get(username);
+        if (user != null && user.password.equals(password)) {
+        return user; 
+    } else {
+            return null;
+        }
+    }
+    //    private static void writeToTxtFile(String report, String filename) {
 //        try ( PrintWriter out = new PrintWriter(filename)) {
 //            out.println(report);
 //        } catch (FileNotFoundException e) {
@@ -34,33 +60,8 @@ public class IntegratedCA_1 {
 //            System.err.println("Error writing to CSV file" + e.getMessage());
 //        }
 //    }
-
-    private static final Map<String, Users> users = new HashMap<>();
     
-    static {
-        //Admin username and password
-        users.put("admin", new Admin("admin", "java")); 
-        
-//        //Office Username and password
-        Database_Connection officeDbConnection = new Database_Connection();
-        users.put("office", new Office("office", "office", officeDbConnection));
-//        
-//        //Lecturer username and password
-        Database_Connection lecturerDbConnection = new Database_Connection();
-        users.put("lecturer", new Lecturer("lecturer", "lecturer", lecturerDbConnection));
-        
-    }
-    
-    private static Users authenticateUser(String username, String password) {
-        Users user = users.get(username);
-        if (user != null && user.password.equals(password)) {
-        return user; 
-    } else {
-            return null;
-        }
-    }
-    
-    
+    //Main method for login in with username and password
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Login");
@@ -69,6 +70,7 @@ public class IntegratedCA_1 {
         System.out.println("Password");
         String password = sc.nextLine();
         
+        //Authenticates username and password and output a response if details entered are correct or not 
         Users user = authenticateUser(username, password);
         
         if (user != null) {

@@ -14,16 +14,18 @@ import java.util.Scanner;
  */
 public class Admin extends Users {
     
+    //Database for storing user info
     private static final Map<String, Users> userDatabase = new HashMap<>();
     
+    //static initializer to add the admin to the database
     static {
         userDatabase.put("admin", new Admin("admin", "java"));
     }
-    
+    //Admin constructor
     public Admin(String username, String password) {
         super(username, password, "Admin");
     }
-
+    //Method to display the admins options 
     @Override
     public void displayOptions(Scanner sc) {
         System.out.println("Admin Options:");
@@ -54,7 +56,7 @@ public class Admin extends Users {
                 break;
         }
     }
-
+    //method to add new user
     private void addUser(Scanner sc) {
        System.out.println("Enter username:");
        String username = sc.nextLine();
@@ -72,7 +74,7 @@ public class Admin extends Users {
        System.out.println("User added successfully");
            
     }
-
+    //method to modify existing user
     private void modifyUser(Scanner sc) {
         System.out.println("Enter username you would like to modify");
         String username = sc.nextLine();
@@ -89,7 +91,7 @@ public class Admin extends Users {
         
         System.out.println("Password updated succesfully.");
     }
-
+    //Method to delete an existing user
     private void deleteUser(Scanner sc) {
         System.out.println("Enter username of the user you wish to delete:");
         String username = sc.nextLine();
@@ -100,6 +102,7 @@ public class Admin extends Users {
             System.out.println("User not found.");
         }
     }
+    //method for changing admin password
     @Override
     public void changePassword(Scanner sc) {
         System.out.println("Enter new password: ");
