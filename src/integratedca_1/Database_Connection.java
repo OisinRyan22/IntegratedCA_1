@@ -17,10 +17,13 @@ public class Database_Connection {
     private final String user = "root";     //Database username
     private final String password = "Gethelp33!";       //database password
     
+    //Method to establish a connection to the database
     public Connection connect() {
         try {
+            //Establish a connection using DriveManager
             return DriverManager.getConnection(DB_URL, user, password);
         } catch (SQLException e) {
+            //If connection fails, throw a runtime exception with error message and cause
             throw new RuntimeException("Error connecting to database", e);
         }
     }

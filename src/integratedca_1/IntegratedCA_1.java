@@ -22,7 +22,7 @@ public class IntegratedCA_1 {
 
     //Hash map for storing user data
     private static final Map<String, Users> users = new HashMap<>();
-    
+     
     static {
         //Admin username and password
         users.put("admin", new Admin("admin", "java")); 
