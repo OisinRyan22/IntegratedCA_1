@@ -14,6 +14,7 @@ import java.util.Scanner;
  *
  * @author ocean
  */
+//Gitbug Link: https://github.com/OisinRyan22/IntegratedCA_1
 public class IntegratedCA_1 {
 
     /**
